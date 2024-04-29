@@ -87,8 +87,8 @@ ylabel('Passive Hip Flexion-Extension Moment (Nm)',FontWeight='bold');
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/passive_hip_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/passive_hip_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 [passiveKneeMoments_R,passiveKneeAngles_R] = computeIsometricPassiveMoments(model_R,knee_angles,hip_angle,knee,hip,kneeFleMuscles,kneeExtMuscles);
@@ -110,8 +110,8 @@ ylabel('Passive Knee Flexion-Extension Moment (Nm)',FontWeight='bold');
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/passive_knee_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/passive_knee_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 [passiveAnkleMoments_R,passiveAnkleAngles_R] = computeIsometricPassiveMoments(model_R,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
@@ -133,8 +133,8 @@ ylabel('Passive Ankle Dorsiflexion-Plantarflexion Moment (Nm)',FontWeight='bold'
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/passive_ankle_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/passive_ankle_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 [allHipFlexMoments_R,allHipFlexAngles_R] = computeIsometricMoments(model_R,hip_angles,knee_angle,hip,knee,hipFleMuscles,hipExtMuscles);
@@ -171,8 +171,8 @@ ylabel('Hip Flexion-Extension Moment (Nm)',FontWeight='bold');
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/active_passive_hip_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/active_passive_hip_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 [allKneeFlexMoments_R,allKneeFlexAngles_R] = computeIsometricMoments(model_R,knee_angles,hip_angle,knee,hip,kneeFleMuscles,kneeExtMuscles);
@@ -209,8 +209,8 @@ ylabel('Knee Flexion-Extension Moment (Nm)',FontWeight='bold');
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/active_passive_knee_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/active_passive_knee_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 [allAnkleFlexMoments_R,allAnkleFlexAngles_R] = computeIsometricMoments(model_R,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
@@ -247,8 +247,8 @@ ylabel('Ankle Dorsiflexion-Plantarflexion Moment (Nm)',FontWeight='bold');
 legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
 
 if strcmp(save_plot,'Yes')
-    filename = 'Plots/active_passive_ankle_moments.tiff';
-    saveas(gcf, filename, 'tiff');
+    filename = 'Plots/active_passive_ankle_moments.png';
+    saveas(gcf, filename, 'png');
 end
 
 
