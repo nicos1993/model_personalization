@@ -76,15 +76,18 @@ ankleFleMuscles_H = ["ext_dig_r","ext_hal_r","per_tert_r","tib_ant_r"];
 
 figure();
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(passiveHipAngles_R,passiveHipMoments_R,'k','LineWidth',2);
+plot(passiveHipAngles_R,passiveHipMoments_R,'k','LineWidth',2.5);
 hold on
-plot(passiveHipAngles_RLU,passiveHipMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(passiveHipAngles_R_DGF,passiveHipMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(passiveHipAngles_RLU_DGF,passiveHipMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(passiveHipAngles_R_strong,passiveHipMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
+plot(passiveHipAngles_RLU,passiveHipMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(passiveHipAngles_R_DGF,passiveHipMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(passiveHipAngles_RLU_DGF,passiveHipMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(passiveHipAngles_R_strong,passiveHipMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Hip Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/passive_hip_moments.png';
@@ -99,15 +102,18 @@ end
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(passiveKneeAngles_R,passiveKneeMoments_R,'k','LineWidth',2);
+plot(passiveKneeAngles_R,passiveKneeMoments_R,'k','LineWidth',2.5);
 hold on
-plot(passiveKneeAngles_RLU,passiveKneeMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(passiveKneeAngles_R_DGF,passiveKneeMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(passiveKneeAngles_RLU_DGF,passiveKneeMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(passiveKneeAngles_R_strong,passiveKneeMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
+plot(passiveKneeAngles_RLU,passiveKneeMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(passiveKneeAngles_R_DGF,passiveKneeMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(passiveKneeAngles_RLU_DGF,passiveKneeMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(passiveKneeAngles_R_strong,passiveKneeMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Knee Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/passive_knee_moments.png';
@@ -122,15 +128,18 @@ end
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(passiveAnkleAngles_R,passiveAnkleMoments_R,'k','LineWidth',2);
+plot(passiveAnkleAngles_R,passiveAnkleMoments_R,'k','LineWidth',2.5);
 hold on
-plot(passiveAnkleAngles_RLU,passiveAnkleMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(passiveAnkleAngles_R_DGF,passiveAnkleMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(passiveAnkleAngles_RLU_DGF,passiveAnkleMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(passiveAnkleAngles_R_strong,passiveAnkleMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
+plot(passiveAnkleAngles_RLU,passiveAnkleMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(passiveAnkleAngles_R_DGF,passiveAnkleMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(passiveAnkleAngles_RLU_DGF,passiveAnkleMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(passiveAnkleAngles_R_strong,passiveAnkleMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Ankle Dorsiflexion-Plantarflexion Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/passive_ankle_moments.png';
@@ -153,22 +162,25 @@ end
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(allHipFlexAngles_R,allHipFlexMoments_R,'k','LineWidth',2);
+plot(allHipFlexAngles_R,allHipFlexMoments_R,'k','LineWidth',2.5);
 hold on
-plot(allHipFlexAngles_RLU,allHipFlexMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allHipFlexAngles_R_DGF,allHipFlexMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allHipFlexAngles_RLU_DGF,allHipFlexMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allHipFlexAngles_R_strong,allHipFlexMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(allHipFlexAngles_H_strong,allHipFlexMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
-plot(allHipExtAngles_R,allHipExtMoments_R,'k','LineWidth',2);
-plot(allHipExtAngles_RLU,allHipExtMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allHipExtAngles_R_DGF,allHipExtMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allHipExtAngles_RLU_DGF,allHipExtMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allHipExtAngles_R_strong,allHipExtMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(allHipExtAngles_H_strong,allHipExtMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
+plot(allHipFlexAngles_RLU,allHipFlexMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allHipFlexAngles_R_DGF,allHipFlexMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allHipFlexAngles_RLU_DGF,allHipFlexMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allHipFlexAngles_R_strong,allHipFlexMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(allHipFlexAngles_H_strong,allHipFlexMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
+plot(allHipExtAngles_R,allHipExtMoments_R,'k','LineWidth',2.5);
+plot(allHipExtAngles_RLU,allHipExtMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allHipExtAngles_R_DGF,allHipExtMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allHipExtAngles_RLU_DGF,allHipExtMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allHipExtAngles_R_strong,allHipExtMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(allHipExtAngles_H_strong,allHipExtMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Hip Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/active_passive_hip_moments.png';
@@ -191,22 +203,25 @@ end
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(allKneeFlexAngles_R,allKneeFlexMoments_R,'k','LineWidth',2);
+plot(allKneeFlexAngles_R,allKneeFlexMoments_R,'k','LineWidth',2.5);
 hold on
-plot(allKneeFlexAngles_RLU,allKneeFlexMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allKneeFlexAngles_R_DGF,allKneeFlexMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allKneeFlexAngles_RLU_DGF,allKneeFlexMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allKneeFlexAngles_R_strong,allKneeFlexMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(-allKneeFlexAngles_H_strong,allKneeFlexMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
-plot(allKneeExtAngles_R,allKneeExtMoments_R,'k','LineWidth',2);
-plot(allKneeExtAngles_RLU,allKneeExtMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allKneeExtAngles_R_DGF,allKneeExtMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allKneeExtAngles_RLU_DGF,allKneeExtMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allKneeExtAngles_R_strong,allKneeExtMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(-allKneeExtAngles_H_strong,allKneeExtMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
+plot(allKneeFlexAngles_RLU,allKneeFlexMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allKneeFlexAngles_R_DGF,allKneeFlexMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allKneeFlexAngles_RLU_DGF,allKneeFlexMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allKneeFlexAngles_R_strong,allKneeFlexMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(-allKneeFlexAngles_H_strong,allKneeFlexMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
+plot(allKneeExtAngles_R,allKneeExtMoments_R,'k','LineWidth',2.5);
+plot(allKneeExtAngles_RLU,allKneeExtMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allKneeExtAngles_R_DGF,allKneeExtMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allKneeExtAngles_RLU_DGF,allKneeExtMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allKneeExtAngles_R_strong,allKneeExtMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(-allKneeExtAngles_H_strong,allKneeExtMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Knee Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/active_passive_knee_moments.png';
@@ -229,22 +244,25 @@ end
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
-plot(allAnkleFlexAngles_R,allAnkleFlexMoments_R,'k','LineWidth',2);
+plot(allAnkleFlexAngles_R,allAnkleFlexMoments_R,'k','LineWidth',2.5);
 hold on
-plot(allAnkleFlexAngles_RLU,allAnkleFlexMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allAnkleFlexAngles_R_DGF,allAnkleFlexMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allAnkleFlexAngles_RLU_DGF,allAnkleFlexMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allAnkleFlexAngles_R_strong,allAnkleFlexMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(allAnkleFlexAngles_H_strong,allAnkleFlexMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
-plot(allAnkleExtAngles_R,allAnkleExtMoments_R,'k','LineWidth',2);
-plot(allAnkleExtAngles_RLU,allAnkleExtMoments_RLU,'r','LineWidth',2,'LineStyle','-');
-plot(allAnkleExtAngles_R_DGF,allAnkleExtMoments_R_DGF,'b','LineWidth',2,'LineStyle','--');
-plot(allAnkleExtAngles_RLU_DGF,allAnkleExtMoments_RLU_DGF,'r','LineWidth',2,'LineStyle','--');
-plot(allAnkleExtAngles_R_strong,allAnkleExtMoments_R_strong,'g','LineWidth',2,'LineStyle','--');
-plot(allAnkleExtAngles_H_strong,allAnkleExtMoments_H_strong,'c','LineWidth',2,'LineStyle','-');
+plot(allAnkleFlexAngles_RLU,allAnkleFlexMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allAnkleFlexAngles_R_DGF,allAnkleFlexMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleFlexAngles_RLU_DGF,allAnkleFlexMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleFlexAngles_R_strong,allAnkleFlexMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleFlexAngles_H_strong,allAnkleFlexMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
+plot(allAnkleExtAngles_R,allAnkleExtMoments_R,'k','LineWidth',2.5);
+plot(allAnkleExtAngles_RLU,allAnkleExtMoments_RLU,'r','LineWidth',2.5,'LineStyle','-');
+plot(allAnkleExtAngles_R_DGF,allAnkleExtMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleExtAngles_RLU_DGF,allAnkleExtMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleExtAngles_R_strong,allAnkleExtMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(allAnkleExtAngles_H_strong,allAnkleExtMoments_H_strong,'c','LineWidth',2.5,'LineStyle','-');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Ankle Dorsiflexion-Plantarflexion Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'})
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','Hamner2010-strong'},'Box','off')
+set(gca, 'FontSize', 20);
+set(gca, 'Box', 'off');
+set(gca, 'LineWidth', 2.5);
 
 if strcmp(save_plot,'Yes')
     filename = 'Plots/active_passive_ankle_moments.png';
