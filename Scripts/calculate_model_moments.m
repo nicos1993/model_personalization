@@ -17,6 +17,9 @@ hip_angle = 70;
 
 ankle_angles = (-30:5:30);
 
+% Generate passive experimental moment curves
+[passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,knee_angle,ankle_angles,80,knee_angles,0);
+
 model_R = Model('Models\Rajagopal2016.osim');
 
 model_op = ModelProcessor(model_R);
