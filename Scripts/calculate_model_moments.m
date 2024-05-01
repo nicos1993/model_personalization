@@ -21,10 +21,51 @@ fixed_knee_ankle = 80;
 % Generate passive experimental moment curves
 [passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,knee_angle,ankle_angles,fixed_knee_ankle,knee_angles,hip_angle);
 
-% Uncomment line below to generate curves in RienerEdrich1999 for a
-% matching configuration
-%[passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,0,ankle_angles,0,knee_angles,0);
+% Generate set of curves in RienerEdrich1999 for matching configurations
+[passive_hip_moments_RE_0, passive_ankle_moments_RE_0, passive_knee_moments_RE_0] = RienerEdrich_PassiveMoments(hip_angles,0,ankle_angles,0,knee_angles,0);
+[passive_hip_moments_RE_45, passive_ankle_moments_RE_60, passive_knee_moments_RE_90] = RienerEdrich_PassiveMoments(hip_angles,45,ankle_angles,60,knee_angles,90);
 
+if strcmp(save_plot,'Yes')
+
+    figure();
+    set(gcf, 'Position', get(0, 'Screensize'));
+    subplot('Position',[0.1, 0.6, 0.25, 0.25])
+    plot(hip_angles,passive_hip_moments_RE_0,'k','LineWidth',2.5);
+    hold on
+    plot(hip_angles,passive_hip_moments_RE_45,'r','LineWidth',2.5);
+    xlabel('Joint Angle (deg)',FontWeight='bold');
+    ylabel({'Passive Hip', 'Flexion-Extension', 'Moment (Nm)'},FontWeight='bold');
+    legend({'Knee Angle = 0 deg','Knee Angle = 45 deg'},'Box','off','Location','southwest')
+    set(gca, 'FontSize', 20);
+    set(gca, 'Box', 'off');
+    set(gca, 'LineWidth', 2.5);
+    
+    subplot('Position',[0.1, 0.25, 0.25, 0.25])
+    plot(knee_angles,passive_knee_moments_RE_0,'k','LineWidth',2.5);
+    hold on
+    plot(knee_angles,passive_knee_moments_RE_90,'r','LineWidth',2.5);
+    xlabel('Joint Angle (deg)',FontWeight='bold');
+    ylabel({'Passive Knee', 'Flexion-Extension', 'Moment (Nm)'},FontWeight='bold');
+    legend({'Hip Angle = 0 deg','Hip Angle = 90 deg'},'Box','off')
+    set(gca, 'FontSize', 20);
+    set(gca, 'Box', 'off');
+    set(gca, 'LineWidth', 2.5);
+    
+    subplot('Position',[0.5, 0.6, 0.25, 0.25])
+    plot(ankle_angles,passive_ankle_moments_RE_0,'k','LineWidth',2.5);
+    hold on
+    plot(ankle_angles,passive_ankle_moments_RE_60,'r','LineWidth',2.5);
+    xlabel('Joint Angle (deg)',FontWeight='bold');
+    ylabel({'Passive Ankle', 'Dorsiflexion-Plantarflexion', 'Moment (Nm)'},FontWeight='bold');
+    legend({'Knee Angle = 0 deg','Knee Angle = 60 deg'},'Box','off')
+    set(gca, 'FontSize', 20);
+    set(gca, 'Box', 'off');
+    set(gca, 'LineWidth', 2.5);
+
+    filename = 'Plots/passive_moments_RienerEdrich.png';
+    saveas(gcf, filename, 'png');
+
+end
 
 model_R = Model('Models\Rajagopal2016.osim');
 
