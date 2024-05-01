@@ -17,8 +17,8 @@ The passive joint moments based on the experimental work of Riener and Edrich (1
 To calculate the passive and maximum isometric joint moments curves we followed the procedures described in the Supplementary Figure 3 caption of Rajagopal et al. (2016):
 
 # References
-1. 
-2. 
+1. Rajagopal, A., Dembia, C.L., DeMers, M.S., Delp, D.D., Hicks, J.L. & Delp, S.L. (2016). Full-body musculoskeletal model for muscle-driven simulation of human gait. IEEE Transactions on Biomedical Engineering, 63, 2068-2079. 
+2. Riener, R. & Edrich, T. (1999). Identification of passive elastic joint moments in the lower extremities. Journal of Biomechanics, 32, 539-544.
 
 # Passive hip moments
 ![Passive hip moments](Plots/passive_hip_moments.png)
