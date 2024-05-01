@@ -15,6 +15,7 @@ The passive joint moments based on the experimental work of Riener and Edrich (1
 # Determining passive joint moments and maximum isometric joint moments
 
 To calculate the passive and maximum isometric joint moments curves we followed the procedures described in the Supplementary Figure 3 caption of Rajagopal et al. (2016):
+> Hip flexion-extension moments were computed  with the knee fixed at 10deg flexion. Knee flexion-extension moments were computed with the hip fixed at 70deg of flexion. Ankle dorsiflexion-plantarflexion moments were computed with the knee fixed at 80deg flexion. In each case, unspecified joint angles were fixed at 0deg.
 
 # References
 1. Rajagopal, A., Dembia, C.L., DeMers, M.S., Delp, D.D., Hicks, J.L. & Delp, S.L. (2016). Full-body musculoskeletal model for muscle-driven simulation of human gait. IEEE Transactions on Biomedical Engineering, 63, 2068-2079. 
