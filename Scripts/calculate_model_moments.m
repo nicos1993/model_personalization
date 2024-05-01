@@ -16,9 +16,15 @@ knee_angles = (0:5:120);
 hip_angle = 70;
 
 ankle_angles = (-30:5:30);
+fixed_knee_ankle = 80;
 
 % Generate passive experimental moment curves
-[passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,knee_angle,ankle_angles,80,knee_angles,0);
+[passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,knee_angle,ankle_angles,fixed_knee_ankle,knee_angles,hip_angle);
+
+% Uncomment line below to generate curves in RienerEdrich1999 for a
+% matching configuration
+%[passive_hip_moments_RE, passive_ankle_moments_RE, passive_knee_moments_RE] = RienerEdrich_PassiveMoments(hip_angles,0,ankle_angles,0,knee_angles,0);
+
 
 model_R = Model('Models\Rajagopal2016.osim');
 
@@ -85,9 +91,10 @@ plot(passiveHipAngles_RLU,passiveHipMoments_RLU,'r','LineWidth',2.5,'LineStyle',
 plot(passiveHipAngles_R_DGF,passiveHipMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
 plot(passiveHipAngles_RLU_DGF,passiveHipMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
 plot(passiveHipAngles_R_strong,passiveHipMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(hip_angles,passive_hip_moments_RE,'c','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Hip Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','RienerEdrich1999'},'Box','off')
 set(gca, 'FontSize', 20);
 set(gca, 'Box', 'off');
 set(gca, 'LineWidth', 2.5);
@@ -111,9 +118,10 @@ plot(passiveKneeAngles_RLU,passiveKneeMoments_RLU,'r','LineWidth',2.5,'LineStyle
 plot(passiveKneeAngles_R_DGF,passiveKneeMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
 plot(passiveKneeAngles_RLU_DGF,passiveKneeMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
 plot(passiveKneeAngles_R_strong,passiveKneeMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(knee_angles,passive_knee_moments_RE,'c','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Knee Flexion-Extension Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','RienerEdrich1999'},'Box','off')
 set(gca, 'FontSize', 20);
 set(gca, 'Box', 'off');
 set(gca, 'LineWidth', 2.5);
@@ -123,11 +131,11 @@ if strcmp(save_plot,'Yes')
     saveas(gcf, filename, 'png');
 end
 
-[passiveAnkleMoments_R,passiveAnkleAngles_R] = computeIsometricPassiveMoments(model_R,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[passiveAnkleMoments_RLU,passiveAnkleAngles_RLU] = computeIsometricPassiveMoments(model_RLU,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[passiveAnkleMoments_R_DGF,passiveAnkleAngles_R_DGF] = computeIsometricPassiveMoments(model_R_DGF,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[passiveAnkleMoments_RLU_DGF,passiveAnkleAngles_RLU_DGF] = computeIsometricPassiveMoments(model_RLU_DGF,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[passiveAnkleMoments_R_strong,passiveAnkleAngles_R_strong] = computeIsometricPassiveMoments(model_R_strong,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[passiveAnkleMoments_R,passiveAnkleAngles_R] = computeIsometricPassiveMoments(model_R,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[passiveAnkleMoments_RLU,passiveAnkleAngles_RLU] = computeIsometricPassiveMoments(model_RLU,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[passiveAnkleMoments_R_DGF,passiveAnkleAngles_R_DGF] = computeIsometricPassiveMoments(model_R_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[passiveAnkleMoments_RLU_DGF,passiveAnkleAngles_RLU_DGF] = computeIsometricPassiveMoments(model_RLU_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[passiveAnkleMoments_R_strong,passiveAnkleAngles_R_strong] = computeIsometricPassiveMoments(model_R_strong,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
@@ -137,9 +145,10 @@ plot(passiveAnkleAngles_RLU,passiveAnkleMoments_RLU,'r','LineWidth',2.5,'LineSty
 plot(passiveAnkleAngles_R_DGF,passiveAnkleMoments_R_DGF,'b','LineWidth',2.5,'LineStyle','--');
 plot(passiveAnkleAngles_RLU_DGF,passiveAnkleMoments_RLU_DGF,'r','LineWidth',2.5,'LineStyle','--');
 plot(passiveAnkleAngles_R_strong,passiveAnkleMoments_R_strong,'g','LineWidth',2.5,'LineStyle','--');
+plot(ankle_angles,passive_ankle_moments_RE,'c','LineWidth',2.5,'LineStyle','--');
 xlabel('Joint Angle (deg)',FontWeight='bold');
 ylabel('Passive Ankle Dorsiflexion-Plantarflexion Moment (Nm)',FontWeight='bold');
-legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong'},'Box','off')
+legend({'Rajagopal2016','RajagopalLaiUhlrich2023','Rajagopal2016-DGF','RajagopalLaiUhlrich2023-DGF','Rajagopal2016-strong','RienerEdrich1999'},'Box','off')
 set(gca, 'FontSize', 20);
 set(gca, 'Box', 'off');
 set(gca, 'LineWidth', 2.5);
@@ -231,19 +240,19 @@ if strcmp(save_plot,'Yes')
     saveas(gcf, filename, 'png');
 end
 
-[allAnkleFlexMoments_R,allAnkleFlexAngles_R] = computeIsometricMoments(model_R,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[allAnkleExtMoments_R,allAnkleExtAngles_R] = computeIsometricMoments(model_R,ankle_angles,80,ankle,knee,ankleExtMuscles,ankleFleMuscles);
-[allAnkleFlexMoments_RLU,allAnkleFlexAngles_RLU] = computeIsometricMoments(model_RLU,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[allAnkleExtMoments_RLU,allAnkleExtAngles_RLU] = computeIsometricMoments(model_RLU,ankle_angles,80,ankle,knee,ankleExtMuscles,ankleFleMuscles);
-[allAnkleFlexMoments_R_DGF,allAnkleFlexAngles_R_DGF] = computeIsometricMoments(model_R_DGF,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[allAnkleExtMoments_R_DGF,allAnkleExtAngles_R_DGF] = computeIsometricMoments(model_R_DGF,ankle_angles,80,ankle,knee,ankleExtMuscles,ankleFleMuscles);
-[allAnkleFlexMoments_RLU_DGF,allAnkleFlexAngles_RLU_DGF] = computeIsometricMoments(model_RLU_DGF,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[allAnkleExtMoments_RLU_DGF,allAnkleExtAngles_RLU_DGF] = computeIsometricMoments(model_RLU_DGF,ankle_angles,80,ankle,knee,ankleExtMuscles,ankleFleMuscles);
-[allAnkleFlexMoments_R_strong,allAnkleFlexAngles_R_strong] = computeIsometricMoments(model_R_strong,ankle_angles,80,ankle,knee,ankleFleMuscles,ankleExtMuscles);
-[allAnkleExtMoments_R_strong,allAnkleExtAngles_R_strong] = computeIsometricMoments(model_R_strong,ankle_angles,80,ankle,knee,ankleExtMuscles,ankleFleMuscles);
+[allAnkleFlexMoments_R,allAnkleFlexAngles_R] = computeIsometricMoments(model_R,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[allAnkleExtMoments_R,allAnkleExtAngles_R] = computeIsometricMoments(model_R,ankle_angles,fixed_knee_ankle,ankle,knee,ankleExtMuscles,ankleFleMuscles);
+[allAnkleFlexMoments_RLU,allAnkleFlexAngles_RLU] = computeIsometricMoments(model_RLU,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[allAnkleExtMoments_RLU,allAnkleExtAngles_RLU] = computeIsometricMoments(model_RLU,ankle_angles,fixed_knee_ankle,ankle,knee,ankleExtMuscles,ankleFleMuscles);
+[allAnkleFlexMoments_R_DGF,allAnkleFlexAngles_R_DGF] = computeIsometricMoments(model_R_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[allAnkleExtMoments_R_DGF,allAnkleExtAngles_R_DGF] = computeIsometricMoments(model_R_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleExtMuscles,ankleFleMuscles);
+[allAnkleFlexMoments_RLU_DGF,allAnkleFlexAngles_RLU_DGF] = computeIsometricMoments(model_RLU_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[allAnkleExtMoments_RLU_DGF,allAnkleExtAngles_RLU_DGF] = computeIsometricMoments(model_RLU_DGF,ankle_angles,fixed_knee_ankle,ankle,knee,ankleExtMuscles,ankleFleMuscles);
+[allAnkleFlexMoments_R_strong,allAnkleFlexAngles_R_strong] = computeIsometricMoments(model_R_strong,ankle_angles,fixed_knee_ankle,ankle,knee,ankleFleMuscles,ankleExtMuscles);
+[allAnkleExtMoments_R_strong,allAnkleExtAngles_R_strong] = computeIsometricMoments(model_R_strong,ankle_angles,fixed_knee_ankle,ankle,knee,ankleExtMuscles,ankleFleMuscles);
 
-[allAnkleFlexMoments_H_strong,allAnkleFlexAngles_H_strong] = computeIsometricMoments(model_H_strong,ankle_angles,-80,ankle,knee,ankleFleMuscles_H,ankleExtMuscles_H);
-[allAnkleExtMoments_H_strong,allAnkleExtAngles_H_strong] = computeIsometricMoments(model_H_strong,ankle_angles,-80,ankle,knee,ankleExtMuscles_H,ankleFleMuscles_H);
+[allAnkleFlexMoments_H_strong,allAnkleFlexAngles_H_strong] = computeIsometricMoments(model_H_strong,ankle_angles,-fixed_knee_ankle,ankle,knee,ankleFleMuscles_H,ankleExtMuscles_H);
+[allAnkleExtMoments_H_strong,allAnkleExtAngles_H_strong] = computeIsometricMoments(model_H_strong,ankle_angles,-fixed_knee_ankle,ankle,knee,ankleExtMuscles_H,ankleFleMuscles_H);
 
 figure;
 set(gcf, 'Position', get(0, 'Screensize'));
