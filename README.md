@@ -1,5 +1,7 @@
 # model_personalization
 
+As it stands this repository ***cannot*** currently help you to personalize your musculoskeletal model muscle-tendon parameters
+
 # Passive hip moments
 ![Passive hip moments](Plots/passive_hip_moments.png)
 
